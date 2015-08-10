@@ -1,7 +1,8 @@
 #!/bin/bash
-#chmod u+x install.sh
 
-apt-get update
+# On Digital Ocean, you can use this file as a cloud-init script.
+
+apt-get -y update
 apt-get -y upgrade
 apt-get -y install build-essential libgd2-xpm-dev libgeoip-dev libpcre3-dev libssl-dev curl libcurl3 libcurl3-dev libmcrypt-dev libxslt-dev libxml2-dev sendmail
 
