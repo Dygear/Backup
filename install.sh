@@ -24,8 +24,11 @@ tar xvfz php-7.0.0beta3.tar.gz
 cd php-7.0.0beta3
 ./configure --enable-fpm --with-mcrypt --with-zlib --enable-mbstring --with-openssl --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --enable-gd-native-ttf --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap
 make
-make test
+#make test
 make install
+cp /sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+chmod u+x /etc/init.d/php-fpm
+update-rc.d php-fpm defaults
 
 cd ~
 
