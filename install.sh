@@ -26,7 +26,7 @@ cd php-7.0.0beta3
 make
 #make test
 make install
-cp /sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+cp ./sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
 chmod u+x /etc/init.d/php-fpm
 update-rc.d php-fpm defaults
 
