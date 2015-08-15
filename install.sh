@@ -25,6 +25,9 @@ make
 make install
 mkdir -p /var/lib/nginx
 
+# Install init.d script
+
+
 # Go Home
 cd ~
 
