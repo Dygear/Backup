@@ -32,10 +32,10 @@ mkdir -p /var/lib/nginx
 cd ~
 
 # Install PHP
-wget http://php.net/distributions/php-7.0.4.tar.xz
-tar xvz php-7.0.4.tar.xz
-cd php-7.0.4
-./configure --enable-fpm --with-mcrypt --with-zlib --enable-mbstring --with-openssl --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --enable-gd-native-ttf --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap --enable-debug
+wget http://php.net/distributions/php-7.0.5.tar.xz
+tar xvz php-7.0.5.tar.xz
+cd php-7.0.5
+./configure --enable-fpm --with-mcrypt --with-zlib --enable-mbstring --with-openssl --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --enable-gd-native-ttf --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcache --enable-opcache-file
 make
 # make test
 make install
