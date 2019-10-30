@@ -13,7 +13,7 @@ wget https://nginx.org/download/nginx-1.14.0.tar.gz
 tar xf nginx-1.14.0.tar.gz
 cd nginx-1.14.0
 ./configure --enable-fpm --with-zlib --enable-mbstring --with-openssl --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcache
-make
+make -j `nproc`
 make install
 mkdir -p /var/lib/nginx
 
@@ -27,7 +27,7 @@ wget https://php.net/distributions/php-7.4.0.tar.xz
 tar xf php-7.4.0.tar.xz
 cd php-7.4.0
 ./configure --enable-fpm --with-mcrypt --with-zlib --enable-mbstring --with-openssl --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --enable-gd-native-ttf --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcache --enable-opcache-file
-make
+make -j `nproc`
 #make test
 make install
 
