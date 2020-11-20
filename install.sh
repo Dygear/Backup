@@ -3,7 +3,7 @@
 # Update & Upgrade Server, plus install all dependencies.
 # apt -y update
 # apt -y upgrade
-apt -y install openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev
+apt -y install openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev
 
 # Go Home
 cd ~
@@ -23,11 +23,10 @@ mkdir -p /var/lib/nginx
 cd ~
 
 # Install PHP
-wget https://php.net/distributions/php-7.4.0.tar.xz
-tar xf php-7.4.0.tar.xz
-cd php-7.4.0
-./configure --enable-fpm --with-mcrypt --with-zlib --enable-mbstring --with-openssl --with-gd --with-jpeg-dir=/usr/lib --with-png-dir=/usr/lib --enable-gd-native-ttf --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcache --enable-opcache-file
-make -j `nproc`
+wget https://php.net/distributions/php-8.0.0.tar.xz
+tar xf php-8.0.0.tar.xz
+cd php-8.0.0
+./configure --enable-fpm --with-zlib --enable-mbstring --with-openssl --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcachemake -j `nproc`
 #make test
 make install
 
