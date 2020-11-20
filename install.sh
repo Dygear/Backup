@@ -9,9 +9,9 @@ apt -y install openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev
 cd ~
 
 # Install nginx
-wget https://nginx.org/download/nginx-1.14.0.tar.gz
-tar xf nginx-1.14.0.tar.gz
-cd nginx-1.14.0
+wget https://nginx.org/download/nginx-1.19.4.tar.gz
+tar xf nginx-1.19.4.tar.gz
+cd nginx-1.19.4
 ./configure --enable-fpm --with-zlib --enable-mbstring --with-openssl --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcache
 make -j `nproc`
 make install
