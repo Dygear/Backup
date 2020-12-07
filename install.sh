@@ -26,7 +26,8 @@ cd ~
 wget https://php.net/distributions/php-8.0.0.tar.xz
 tar xf php-8.0.0.tar.xz
 cd php-8.0.0
-./configure --enable-fpm --with-zlib --enable-mbstring --with-openssl --with-curl --enable-ftp --enable-calendar --enable-pcntl --enable-soap --enable-debug --enable-opcachemake -j `nproc`
+./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
+make -j`nproc`
 #make test
 make install
 
