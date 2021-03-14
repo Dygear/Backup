@@ -3,7 +3,7 @@
 # Update & Upgrade Server, plus install all dependencies.
 # apt -y update
 # apt -y upgrade
-apt -y install pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev
+apt -y install pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev
 
 # Go Home
 cd ~
