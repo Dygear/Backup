@@ -3,7 +3,7 @@
 # Update & Upgrade Server, plus install all dependencies.
 # apt -y update
 # apt -y upgrade
-apt -y install openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev
+apt -y install pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev
 
 # Go Home
 cd ~
@@ -12,9 +12,9 @@ cd ~
 cd ~
 
 # Install PHP
-wget https://php.net/distributions/php-8.0.2.tar.xz
-tar xf php-8.0.2.tar.xz
-cd php-8.0.2
+wget https://php.net/distributions/php-8.0.3.tar.xz
+tar xf php-8.0.3.tar.xz
+cd php-8.0.3
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
 make -j`nproc`
 #make test
