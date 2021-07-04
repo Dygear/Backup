@@ -12,8 +12,8 @@ cd ~
 cd ~
 
 # Install PHP
-wget https://php.net/distributions/php-8.0.3.tar.xz
-tar xf php-8.0.3.tar.xz
+wget https://php.net/distributions/php-8.0.8.tar.xz
+tar xf php-8.0.8.tar.xz
 cd php-8.0.3
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
 make -j`nproc`
