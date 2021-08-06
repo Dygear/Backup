@@ -1,0 +1,14 @@
+[Unit]
+Description=MimoSDR
+
+[Service]
+User=pi
+Group=pi
+Environment="PATH=/home/pi/bin/:/usr/local/bin:/usr/bin"
+WorkingDirectory=/home/pi/trunk-recorder
+ExecStart=/home/pi/trunk-recorder/auto-restart.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
