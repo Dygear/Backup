@@ -3,13 +3,13 @@
 # Update & Upgrade Server, plus install all dependencies.
 apt -y update
 apt -y upgrade
-apt -y install pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev
+apt -y install pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c
 
 # Go Home
 cd ~
 
 # Install PHP
-wget https://php.net/distributions/php-8.1.0RC3.tar.xz
+wget https://php.net/distributions/php-8.1.0RC5.tar.xz
 tar xf php-8.1.0RC3.tar.xz
 cd php-8.1.0RC3
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
