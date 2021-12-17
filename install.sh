@@ -36,4 +36,5 @@ mv /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
 ##  group = www-data
 
 cp ./sapi/fpm/php-fpm.service /etc/systemd/system/
+## Change `ProtectSystem=true` to `ProtectSystem=false`.
 systemctl enable php-fpm.service
