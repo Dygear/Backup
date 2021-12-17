@@ -1,9 +1,12 @@
 #!/bin/bash
 
+## This file now assumes a debian 11 (bullseye) install.
+## Must be ran as root.
+
 # Update & Upgrade Server, plus install all dependencies.
 apt -y update
 apt -y upgrade
-apt -y install pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c
+apt -y install nginx build-essential pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c
 
 # Go Home
 cd ~
@@ -17,15 +20,20 @@ make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
 make install
 
-# Install init.d script
-cp ./sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
-chmod u+x /etc/init.d/php-fpm
-update-rc.d php-fpm defaults
+# Install service file.
+mv /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
+## Moify /usr/local/etc/php-fpm.conf
+## the last line to remove the `NONE/`
+## should just be `include=etc/php-fpm.d/*.conf`
 
-# Install Config Files
-cp ./sapi/fpm/php-fpm.conf /usr/local/etc/php-fpm.conf
-mkdir -p /usr/local/NONE/etc/php-fpm.d/
-cp ./sapi/fpm/www.conf /usr/local/NONE/etc/php-fpm.d/www.conf
-nano /usr/local/NONE/etc/php-fpm.d/www.conf
+mv /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
+## Modify the following lines in
+## /usr/local/etc/php-fpm.d/www.conf
+##  user = nobody
+##  group = nobody
+## to say
+##  user = www-data
+##  group = www-data
 
-cd ~
+cp ./sapi/fpm/php-fpm.service /etc/systemd/system/
+systemctl enable php-fpm.service
