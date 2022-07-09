@@ -12,9 +12,9 @@ apt -y install nginx build-essential pkg-config openssl libssl-dev libxml2-dev l
 cd ~
 
 # Install PHP
-wget https://www.php.net/distributions/php-8.1.6.tar.xz
-tar xf php-8.1.6.tar.xz
-cd php-8.1.6
+wget https://www.php.net/distributions/php-8.1.8.tar.xz
+tar xf php-8.1.8.tar.xz
+cd php-8.1.8
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
