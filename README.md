@@ -8,7 +8,7 @@ Backup files for if I move computers.
 List profiles
 
 ```
-dconf dump /org/gnome/terminal/legacy/profiles:/
+dconf dump /org/gnome/terminal/legacy/profiles:/ > Terminal.dconf
 ```
 
 Determine the terminal profile string for the profile you will need. This is the terminal profile that I will export:
