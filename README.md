@@ -40,20 +40,6 @@ use-theme-transparency=false
 use-transparent-background=true
 ```
 
-And the string that I will need to use to export is
-
 ```
-:74302df5-606c-4210-95f6-f98eafad0316
-```
-
-The command to export that profile is (note the ending slash)
-
-```
-dconf dump /org/gnome/terminal/legacy/profiles:/:74302df5-606c-4210-95f6-f98eafad0316/ > Twilight.dconf
-```
-
-To restore the profile
-
-```
-dconf load /org/gnome/terminal/legacy/profiles:/:74302df5-606c-4210-95f6-f98eafad0316/ < Twilight.dconf
+dconf load /org/gnome/terminal/legacy/profiles:/ < Terminal.dconf
 ```
