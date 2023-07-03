@@ -1,20 +1,20 @@
 #!/bin/bash
 
-## This file now assumes a debian 11 (bullseye) install.
+## This file now assumes a debian 12 (bookworm) install.
 ## Must be ran as root.
 
 # Update & Upgrade Server, plus install all dependencies.
 apt -y update
 apt -y upgrade
-apt -y install nginx build-essential pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c
+apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c
 
 # Go Home
 cd ~
 
 # Install PHP
-wget https://www.php.net/distributions/php-8.2.0.tar.xz
-tar xf php-8.2.0.tar.xz
-cd php-8.2.0
+wget https://www.php.net/distributions/php-8.3.0.tar.xz
+tar xf php-8.3.0.tar.xz
+cd php-8.3.0
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
