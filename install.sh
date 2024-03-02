@@ -12,9 +12,9 @@ apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-d
 cd ~
 
 # Install PHP
-wget https://www.php.net/distributions/php-8.3.0.tar.xz
-tar xf php-8.3.0.tar.xz
-cd php-8.3.0
+wget https://www.php.net/distributions/php-8.3.3.tar.xz
+tar xf php-8.3.3.tar.xz
+cd php-8.3.3
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
@@ -23,12 +23,23 @@ make install
 # Install service file.
 mv /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
 ## Modify /usr/local/etc/php-fpm.conf
-## the last line to remove the `NONE/`
+##  ;pid = 
+## to say
+##  pid = /run/php-fpm.pid
+## And:
+##  error_log = /var/www/php-fpm.log
+## to say
+##  error_log = /var/www/php-fpm.log
+## and the last line to remove the `NONE/`
 ## should just be `include=etc/php-fpm.d/*.conf`
 
 mv /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
 ## Modify the following lines in
 ## /usr/local/etc/php-fpm.d/www.conf
+##  ;prefix = /path/to/pools/$pool
+## to say
+##  /var/$pool
+## And:
 ##  user = nobody
 ##  group = nobody
 ## to say
