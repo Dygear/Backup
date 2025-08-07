@@ -23,15 +23,17 @@ make install
 # Install service file.
 mv /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
 ## Modify /usr/local/etc/php-fpm.conf
-##  ;pid = 
+##  ;pid = run/php-fpm.pid
 ## to say
 ##  pid = /run/php-fpm.pid
 ## And:
-##  error_log = /var/www/php-fpm.log
+##  ;error_log = log/php-fpm.log
 ## to say
 ##  error_log = /var/www/php-fpm.log
-## and the last line to remove the `NONE/`
-## should just be `include=etc/php-fpm.d/*.conf`
+## and the last line remove the `NONE/`
+##  include=NONE/etc/php-fpm.d/*.conf
+## should just be
+##  include=etc/php-fpm.d/*.conf
 
 mv /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
 ## Modify the following lines in
