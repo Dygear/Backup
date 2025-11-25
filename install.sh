@@ -12,7 +12,7 @@ apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-d
 cd ~
 
 # Install PHP
-wget https://downloads.php.net/~edorian/php-8.5.0beta3.tar.xz
+wget wget https://www.php.net/distributions/php-8.5.0.tar.xz
 tar xf php-8.5.0beta3.tar.xz
 cd php-8.5.0beta3
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
