@@ -1,7 +1,7 @@
 #!/bin/bash
 
-## This file now assumes a debian 12 (bookworm) install.
-## Must be ran as root.
+## This file now assumes a debian 13 (Trixie) install.
+## Must be ran as root or via sudo (after you installed sudo).
 
 # Update & Upgrade Server, plus install all dependencies.
 apt -y update
