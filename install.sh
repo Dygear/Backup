@@ -11,8 +11,20 @@ apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-d
 # Go Home
 cd ~
 
+# Download and Install SQLite (with Encrpytion Extension)
+# Note, that the SEE files require a license, so are not included here.
+wget https://sqlite.org/2025/sqlite-amalgamation-3510100.zip
+tar xf sqlite-amalgamation-3510100.zip
+wget SEE
+tar xf SEE
+cd sqlite-amalgamation-3510100
+cp ~/SEE/sqlite3-see.c ./sqlite.c
+./configure --enable-fts5 --enable-rtree --enable-geopoly --enable-dbpage --enable-dbstat
+make -j`nproc`
+make install
+
 # Install PHP
-wget wget https://www.php.net/distributions/php-8.5.0.tar.xz
+wget https://www.php.net/distributions/php-8.5.0.tar.xz
 tar xf php-8.5.0beta3.tar.xz
 cd php-8.5.0beta3
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
