@@ -24,9 +24,9 @@ make -j`nproc`
 make install
 
 # Install PHP
-wget https://www.php.net/distributions/php-8.5.0.tar.xz
-tar xf php-8.5.0beta3.tar.xz
-cd php-8.5.0beta3
+wget https://www.php.net/distributions/php-8.5.1.tar.xz
+tar xf php-8.5.1.tar.xz
+cd php-8.5.1
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
