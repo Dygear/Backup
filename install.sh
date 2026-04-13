@@ -13,8 +13,8 @@ cd ~
 
 # Download and Install SQLite (with Encrpytion Extension)
 # Note, that the SEE files require a license, so are not included here.
-wget https://sqlite.org/2025/sqlite-amalgamation-3510100.zip
-tar xf sqlite-amalgamation-3510100.zip
+wget https://www.sqlite.org/2026/sqlite-autoconf-3530000.tar.gz
+tar xf sqlite-autoconf-3530000.tar.gz
 wget SEE
 tar xf SEE
 cd sqlite-amalgamation-3510100
