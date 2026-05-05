@@ -6,7 +6,7 @@
 # Update & Upgrade Server, plus install all dependencies.
 apt -y update
 apt -y upgrade
-apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c
+apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-dev libonig-dev sqlite3 libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libpng-dev autoconf bison re2c libsodium-dev
 
 # Go Home
 cd ~
@@ -27,7 +27,7 @@ make install
 wget https://www.php.net/distributions/php-8.5.1.tar.xz
 tar xf php-8.5.1.tar.xz
 cd php-8.5.1
-./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap
+./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap --with-sodium
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
 make install
