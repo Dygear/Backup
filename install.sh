@@ -13,20 +13,20 @@ cd ~
 
 # Download and Install SQLite (with Encrpytion Extension)
 # Note, that the SEE files require a license, so are not included here.
-wget https://www.sqlite.org/2026/sqlite-autoconf-3530000.tar.gz
-tar xf sqlite-autoconf-3530000.tar.gz
+wget https://sqlite.org/2026/sqlite-autoconf-3530100.tar.gz
+tar xf sqlite-autoconf-3530100.tar.gz
 wget SEE
 tar xf SEE
-cd sqlite-amalgamation-3510100
+cd sqlite-amalgamation-3530100
 cp ~/SEE/sqlite3-see.c ./sqlite.c
 ./configure --enable-fts5 --enable-rtree --enable-geopoly --enable-dbpage --enable-dbstat
 make -j`nproc`
 make install
 
 # Install PHP
-wget https://www.php.net/distributions/php-8.5.1.tar.xz
-tar xf php-8.5.1.tar.xz
-cd php-8.5.1
+wget https://www.php.net/distributions/php-8.5.5.tar.xz
+tar xf php-8.5.5.tar.xz
+cd php-8.5.5
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap --with-sodium
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
