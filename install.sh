@@ -12,32 +12,36 @@ apt -y install git nginx build-essential pkg-config openssl libssl-dev libxml2-d
 cd ~
 
 # Build SQLite 3.53.1 + SEE
-# First: scp sqlite_encryption_extension-20251128184002-e61aa9c5b3.tar.gz to the server.
+# First: scp sqlite_encryption_extension-20251128184002-e61aa9c5b3.tar.gz to /root/ on the server.
 
 set -e
 
 SQLITE_VER=3530100
-SEE_TAR=sqlite_encryption_extension-20260505113605-befcb56c30.tar.gz
+
+SEE_NAME=sqlite_encryption_extension-20260505113605-befcb56c30
+SEE_TAR=${SEE_NAME}.tar.gz
+SEE_DIR=../${SEE_NAME}
 
 mkdir -p ~/build/sqlite-see
 cd ~/build/sqlite-see
 
 wget https://sqlite.org/2026/sqlite-autoconf-${SQLITE_VER}.tar.gz
+
 tar xf sqlite-autoconf-${SQLITE_VER}.tar.gz
 tar xf ~/${SEE_TAR}
 
 cd sqlite-autoconf-${SQLITE_VER}
 
+make distclean || true
+
 # Replace public SQLite amalgamation with SEE-enabled amalgamation.
-# sqlite3-see.c supports multiple algorithms including aes256ofb/aes256gcm.
-cp ../sqlite3-see.c ./sqlite3.c
+cp "${SEE_DIR}/sqlite3-see.c" ./sqlite3.c
 
 # Use SEE's enhanced CLI shell and matching header.
-cp ../shell.c ./shell.c
-cp ../sqlite3.h ./sqlite3.h
+cp "${SEE_DIR}/shell.c" ./shell.c
+cp "${SEE_DIR}/sqlite3.h" ./sqlite3.h
 
 ./configure --enable-fts5 --enable-rtree --enable-geopoly --enable-dbpage --enable-dbstat
-
 make -j"$(nproc)"
 sudo make install
 sudo ldconfig
@@ -45,6 +49,7 @@ sudo ldconfig
 sqlite3 --version
 
 # Install PHP
+cd ~/build/
 wget https://www.php.net/distributions/php-8.5.5.tar.xz
 tar xf php-8.5.5.tar.xz
 cd php-8.5.5
