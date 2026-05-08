@@ -50,9 +50,9 @@ sqlite3 --version
 
 # Install PHP
 cd ~/build/
-wget https://www.php.net/distributions/php-8.5.5.tar.xz
-tar xf php-8.5.5.tar.xz
-cd php-8.5.5
+wget https://www.php.net/distributions/php-8.5.6.tar.xz
+tar xf php-8.5.6.tar.xz
+cd php-8.5.6
 ./configure --enable-fpm --enable-pcntl --enable-calendar --enable-mbstring --with-zlib --with-openssl --with-libxml --enable-soap --with-sodium
 make -j`nproc`
 make TEST_PHP_ARGS=-j`nproc` test
